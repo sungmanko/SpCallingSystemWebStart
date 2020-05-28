@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>SP架電システム―sample page</title>
+ <title>PFD架電システム―sample page</title>
  <meta http-equiv="content-type" charset="shift-jis">
 </head>
 <script>
@@ -14,12 +14,12 @@ function exec(){
 	var target5 = document.getElementsByName("param5")[0].value;
 	var target6 = document.getElementsByName("param6")[0].value;
 
-	location.href = "SpCallingSystem:" + "/" + target1 + "/" + target2 + "/" + target3 + "/" + target4 + "/" + target5 + "/" + target6;
+	location.href = "PFDCallingSystem:" + "/" + target1 + "/" + target2 + "/" + target3 + "/" + target4 + "/" + target5 + "/" + target6;
 }
 
 </script>
 
-【SP架電システム―起動方法サンプル】
+【PFD架電システム―起動方法サンプル】
 <p>
 　 　カナ氏名 : <input type="text" name="param1" value="ﾗｸﾃﾝﾀﾛｳ"><br/><br/>
 　　顧客氏名 : <input type="text" name="param2" value="楽天太郎"><br/><br/>
@@ -29,4 +29,4 @@ function exec(){
 　不通フラグ : <input type="text" name="param6" value="00101"><br/>
 　※自宅住所 + 自宅電話 + 勤務先住所 + 勤務先電話 + 携帯電話<p>
 
-<input type="button" name="link" value="SpCallingSystem起動" onclick="exec()">
+<input type="button" name="link" value="PFDCallingSystem起動" onclick="exec()">
