@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>PFD架電システム―sample page</title>
+ <meta http-equiv="content-type" charset="shift-jis">
+</head>
+<style type="text/css"><!--
+.bigCheck { width:15pt; height:15pt; }
+--></style>
+<script>
+
+function execute(){
+	var target1 = document.getElementsByName("param1")[0].value;
+	var target2 = document.getElementsByName("param2")[0].value;
+	var target3 = document.getElementsByName("param3")[0].value;
+	var target4 = document.getElementsByName("param4")[0].value;
+	var target5 = document.getElementsByName("param5")[0].value;
+
+	var check1 = "0";	// ■自宅住所
+	var check2 = "";	// 自宅電話
+	var check3 = "0";	// ■勤務先住所
+	var check4 = "";	// 勤務先電話
+	var check5 = "";	// 携帯電話
+	for (var i = 0; i < document.Disconnection.DisconnectionFlag.length; i++) {
+		// i番目のチェックボックスがチェックされているかを判定
+		if(i==0){
+			if (document.Disconnection.DisconnectionFlag[i].checked) {
+				check2 = "1";
+			} else {
+				check2 = "0";
+			}
+		}
+		if(i==1){
+			if (document.Disconnection.DisconnectionFlag[i].checked) {
+				check5 = "1";
+			} else {
+				check5 = "0";
+			}
+		}
+		if(i==2){
+			if (document.Disconnection.DisconnectionFlag[i].checked) {
+				check4 = "1";
+			} else {
+				check4 = "0";
+			}
+		}
+	}
+
+	var target6 = check1 + check2 + check3 + check4 + check5;
+
+	location.href = "PFDCallingSystem:" + "/" + target1 + "/" + target2 + "/" + target3 + "/" + target4 + "/" + target5 + "/" + target6;
+}
+
+</script>
+<br>
+【PFD架電システム―起動方法サンプル】
+<form name="Disconnection" style="padding-left:20px">
+　　カナ氏名 : <input type="text" name="param1" value="ﾗｸﾃﾝﾀﾛｳ"><p>
+　　顧客氏名 : <input type="text" name="param2" value="楽天太郎"><p>
+　　自宅電話 : <input type="text" name="param3" value="092-111-1111"><input type="checkbox" class="bigCheck" name="DisconnectionFlag" style="position:relative; top:5px;"><p>
+　　携帯電話 : <input type="text" name="param4" value="080-2222-3333"><input type="checkbox" class="bigCheck" name="DisconnectionFlag" style="position:relative; top:5px;"><p>
+　　会社電話 : <input type="text" name="param5" value="03-4444-5555"><input type="checkbox" class="bigCheck" name="DisconnectionFlag" style="position:relative; top:5px;"><br>
+</form>
+<!--
+<font style="position: relative; left: 0px; top: 0px;">【不通フラグ】</font><br>
+<font style="position: relative; left: 0px; top: 0px;">＜自宅住所、勤務先住所＞は非表示</font><br>
+<font size="1" style="position: relative; left: 0px; top: 0px;">自宅住所 + 自宅電話 + 勤務先住所 + 勤務先電話 + 携帯電話</font><br>
+<form name="Disconnection" style="padding-left:20px">
+  <input type="checkbox" name="DisconnectionFlag" disabled="disabled" hidden="true"/>
+  <input type="checkbox" name="DisconnectionFlag">自宅電話<br>
+  <input type="checkbox" name="DisconnectionFlag" disabled="disabled" hidden="true">
+  <input type="checkbox" name="DisconnectionFlag">勤務先電話<br>
+  <input type="checkbox" name="DisconnectionFlag">携帯電話<br>
+</form>
+-->
+
+<input type="button" name="summit" style="position:relative; left:20px; top:0px; height:50px; width:200px;" value="PFDCallingSystem起動" onclick="execute()">
